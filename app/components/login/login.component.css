@@ -1,0 +1,35 @@
+.loginDiv .panel.with-nav-tabs .panel-heading{
+    padding: 5px 5px 0 5px;
+}
+
+.loginDiv .panel.with-nav-tabs .nav-tabs{
+    border-bottom: none;
+}
+
+.loginDiv .panel.with-nav-tabs .nav-justified{
+    margin-bottom: -1px;
+}
+
+
+.loginDiv .with-nav-tabs.panel-default .nav-tabs > li > a,
+.loginDiv .with-nav-tabs.panel-default .nav-tabs > li > a:hover,
+.loginDiv .with-nav-tabs.panel-default .nav-tabs > li > a:focus {
+    color: #777;
+}
+.loginDiv .with-nav-tabs.panel-default .nav-tabs > .open > a,
+.loginDiv .with-nav-tabs.panel-default .nav-tabs > .open > a:hover,
+.loginDiv .with-nav-tabs.panel-default .nav-tabs > .open > a:focus,
+.loginDiv .with-nav-tabs.panel-default .nav-tabs > li > a:hover,
+.loginDiv .with-nav-tabs.panel-default .nav-tabs > li > a:focus {
+    color: #777;
+    background-color: #ddd;
+    border-color: transparent;
+}
+.loginDiv .with-nav-tabs.panel-default .nav-tabs > li.active > a,
+.loginDiv .with-nav-tabs.panel-default .nav-tabs > li.active > a:hover,
+.loginDiv .with-nav-tabs.panel-default .nav-tabs > li.active > a:focus {
+    color: #555;
+    background-color: #fff;
+    border-color: #ddd;
+    border-bottom-color: transparent;
+}
