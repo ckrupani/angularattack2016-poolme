@@ -27,9 +27,13 @@ import { PmDashboardComponent } from './components/dashboard/dashboard.component
         useAsDefault: true
     },
     {
-        path: '/dashboard',
+        path: '/dashboard/...',
         name: 'Dashboard',
         component: PmDashboardComponent
+    },
+    {
+        path: '/**',
+        redirectTo: ['Login']
     }
 ])
 

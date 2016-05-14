@@ -29,9 +29,13 @@ h3, h4 {
     bottom: 24px;
     left: 0px;
     right: 0px;
-    padding-top: 20px;
+    padding: 20px 0;
     background-color: #2D2D30;
     overflow-y: auto;
+}
+
+.contentDiv .container-fluid {
+    height: 100%;
 }
 
 .nav-tabs li a {

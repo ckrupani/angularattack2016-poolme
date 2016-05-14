@@ -1,0 +1,36 @@
+.dashboardDiv,
+.dashboardDiv .row,
+.dashboardDiv .sideNavBar,
+.dashboardDiv .mainContentDiv {
+    height: 100%;
+}
+
+/* Side Navigation */
+
+@media(min-width:768px) {
+    .dashboardDiv .sideNavBar {
+        background-color: #333;
+        color: #fff !important;
+        border: solid 1px #F5F5F5;
+        border-radius: 4px;
+        padding: 0px;
+    }
+
+    .dashboardDiv .sideNavBar a {
+        background-color: #333;
+        color: #fff !important;
+        border: none;
+    }
+
+    .dashboardDiv .sideNavBar a.active {
+        background-color: #424245 !important;
+        color: #fff !important;
+    }
+
+    .dashboardDiv .sideNavBar a:hover,
+    .dashboardDiv .sideNavBar a:focus {
+        outline: none;
+        background-color: #F5F5F5 !important;
+        color: #000 !important;
+    }
+}
