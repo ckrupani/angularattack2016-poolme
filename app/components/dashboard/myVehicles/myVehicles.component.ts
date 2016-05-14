@@ -46,6 +46,9 @@ export class PmMyVehiclesComponent implements OnInit, OnDestroy {
     registerVehicle() {
         if (this._vehicleService.doesVehicleExist(this.newVehicle)) {
             this.doesVehicleExist = true;
+            setTimeout(() => {
+                this.doesVehicleExist = false;
+            }, 5000);
         } else {
             this.doesVehicleExist = false;
             this._vehicleService.create(this.newVehicle);
