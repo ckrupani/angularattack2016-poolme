@@ -1,7 +1,23 @@
-<div class="container-fluid loginDiv">
+<div class="dashboardDiv">
     <div class="row">
-        <div class="col-md-12">
-            <p>Dahsboard will come here</p>
+        <div class="col-md-2 sideNavBar">
+            <div class="list-group">
+                <a [routerLink]="['AllTrips']" class="list-group-item" [ngClass]="{active: currentView === 'allTrips'}" (click)="setCurrentView('allTrips')" >
+                    All Trips<span *ngIf="currentView === 'allTrips'" class="glyphicon glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span>
+                </a>
+                <a [routerLink]="['MyTrips']" class="list-group-item" [ngClass]="{active: currentView === 'myTrips'}" (click)="setCurrentView('myTrips')">
+                    My Trips<span *ngIf="currentView === 'myTrips'" class="glyphicon glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span>
+                </a>
+                <a [routerLink]="['MyVehicles']" class="list-group-item" [ngClass]="{active: currentView === 'myVehicles'}" (click)="setCurrentView('myVehicles')">
+                    My Vehicles<span *ngIf="currentView === 'myVehicles'" class="glyphicon glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span>
+                </a>
+                <a [routerLink]="['Profile']" class="list-group-item" [ngClass]="{active: currentView === 'profile'}" (click)="setCurrentView('profile')">
+                    Profile<span *ngIf="currentView === 'profile'" class="glyphicon glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-10 mainContentDiv">
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>
