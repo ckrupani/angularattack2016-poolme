@@ -2,6 +2,7 @@ import { Component } from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from 'angular2/router';
 
 import { AuthService } from './shared_components/services/auth.service';
+import { VehicleService } from './shared_components/services/vehicle.service';
 
 import { PmHeaderComponent } from './components/header/header.component';
 import { PmFooterComponent } from './components/footer/footer.component';
@@ -15,7 +16,8 @@ import { PmDashboardComponent } from './components/dashboard/dashboard.component
     directives: [PmHeaderComponent, ROUTER_DIRECTIVES, PmFooterComponent],
     providers: [
         ROUTER_PROVIDERS,
-        AuthService
+        AuthService,
+        VehicleService
     ]
 })
 

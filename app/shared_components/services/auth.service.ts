@@ -22,6 +22,7 @@ export class AuthService {
             this._currentUser = JSON.parse(window.localStorage['pool-me-user']).token;
         } else {
             this._currentUser = {};
+            // this._currentUser = { id: 1, email: "abc@yahoo.com", password: "abc", name: "John", sex: "male" };
         }
         this.userChange.next(this._currentUser);
         this._newUserId = +window.localStorage['pool-me-newUserId'];
@@ -95,7 +96,7 @@ export class AuthService {
 
     login(user) {
         var currentUser = this._users.filter(u => u.email === user.email)[0];
-        this._currentUser.name = currentUser.name;
+        this._currentUser = currentUser;
         this.saveToken(currentUser);
         this.userChange.next(this._currentUser);
         /*return this.$http.post('/api/login', user).success(data => {

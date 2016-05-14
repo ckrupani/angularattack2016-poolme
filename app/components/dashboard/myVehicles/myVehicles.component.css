@@ -4,3 +4,29 @@
     background-color: #333;
     color: #fff !important;
 }
+
+.myVehiclesPanel .panel {
+    height: 100%;
+    margin: 0px;
+    background-color: #333;
+    color: #fff !important;
+}
+
+.myVehiclesPanel .vehicleRegistrationPanel .panel-heading {
+    background-color: #424245 !important;
+    color: #fff !important;
+}
+
+.myVehiclesPanel .vehicleRegistrationPanel .btn {
+    color: #000;
+    font-weight: bold;
+}
+
+.myVehiclesPanel .vehicleRegistrationPanel .vehicleOptions {
+    margin-right: 15px;
+}
+
+.myVehiclesPanel span.glyphicon-remove {
+    color: red;
+    cursor: pointer;
+}

@@ -36,6 +36,7 @@ export class PmLoginComponent implements OnInit {
         this.isRegistrationDone = true;
         setTimeout(() => {
             this.isRegistrationDone = false;
+            this.newUser = new User(0, '', '', '', '');
         }, 5000);
     }
 
