@@ -1,13 +1,15 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
+import template from './login.component.html!text';
+import './login.component.css!';
 
 import { AuthService } from '../../shared_components/services/auth.service';
 import { User } from '../../shared_components/models/user';
 
 @Component({
     selector: 'pm-login',
-    templateUrl: 'app/components/login/login.component.html',
-    styleUrls: ['app/components/login/login.component.css']
+    template: template
+    // styleUrls: ['app/components/login/login.component.css']
 })
 
 export class PmLoginComponent implements OnInit {

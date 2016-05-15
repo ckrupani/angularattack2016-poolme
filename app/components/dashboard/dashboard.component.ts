@@ -1,5 +1,7 @@
 import { Component } from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, Router } from 'angular2/router';
+import template from './dashboard.component.html!text';
+import './dashboard.component.css!';
 
 import { AuthService } from '../../shared_components/services/auth.service';
 import { PmCreateTripComponent } from './createTrip/createTrip.component';
@@ -11,8 +13,8 @@ import { PmProfileComponent } from './profile/profile.component';
 
 @Component({
     selector: 'pm-dashboard',
-    templateUrl: 'app/components/dashboard/dashboard.component.html',
-    styleUrls: ['app/components/dashboard/dashboard.component.css'],
+    template: template,
+    // styleUrls: ['app/components/dashboard/dashboard.component.css'],
     directives: [ROUTER_DIRECTIVES]
 })
 
