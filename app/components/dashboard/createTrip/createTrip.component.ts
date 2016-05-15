@@ -1,5 +1,7 @@
 import { Component, OnInit } from 'angular2/core';
 import { Observable } from 'rxjs/Rx';
+import template from './createTrip.component.html!text';
+import './createTrip.component.css!';
 
 import { AuthService } from '../../../shared_components/services/auth.service';
 import { VehicleService } from '../../../shared_components/services/vehicle.service';
@@ -9,8 +11,8 @@ import { Trip } from '../../../shared_components/models/trip';
 
 @Component({
     selector: 'pm-createtrip',
-    templateUrl: 'app/components/dashboard/createTrip/createTrip.component.html',
-    styleUrls: ['app/components/dashboard/createTrip/createTrip.component.css']
+    template: template
+    // styleUrls: ['app/components/dashboard/createTrip/createTrip.component.css']
 })
 
 export class PmCreateTripComponent implements OnInit {

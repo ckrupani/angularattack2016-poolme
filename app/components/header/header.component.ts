@@ -1,12 +1,14 @@
 import { Component, OnInit, OnDestroy } from 'angular2/core';
 import { Router } from 'angular2/router';
+import template from './header.component.html!text';
+import './header.component.css!';
 
 import { AuthService } from '../../shared_components/services/auth.service';
 
 @Component({
 	selector: 'pm-header',
-	templateUrl: 'app/components/header/header.component.html',
-	styleUrls: ['app/components/header/header.component.css']
+	template: template
+	// styleUrls: ['app/components/header/header.component.css']
 })
 
 export class PmHeaderComponent implements OnInit, OnDestroy {

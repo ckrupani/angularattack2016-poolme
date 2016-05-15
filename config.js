@@ -29,6 +29,7 @@ System.config({
     "es6-shim": "github:es-shims/es6-shim@0.35.1",
     "reflect-metadata": "npm:reflect-metadata@0.1.2",
     "rxjs": "npm:rxjs@5.0.0-beta.7",
+    "text": "github:systemjs/plugin-text@0.0.4",
     "ts": "github:frankwallis/plugin-typescript@4.0.10",
     "typescript": "npm:typescript@1.8.10",
     "zone.js": "npm:zone.js@0.6.12",

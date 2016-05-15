@@ -1,5 +1,7 @@
 import { Component } from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from 'angular2/router';
+import template from './app.component.html!text';
+import './app.component.css!';
 
 import { AuthService } from './shared_components/services/auth.service';
 import { VehicleService } from './shared_components/services/vehicle.service';
@@ -13,8 +15,8 @@ import { PmDashboardComponent } from './components/dashboard/dashboard.component
 
 @Component({
     selector: 'pool-me-app',
-    templateUrl: 'app/app.component.html',
-    styleUrls: ['app/app.component.css'],
+    template: template,
+    // styleUrls: ['app/app.component.css'],
     directives: [PmHeaderComponent, ROUTER_DIRECTIVES, PmFooterComponent],
     providers: [
         ROUTER_PROVIDERS,
