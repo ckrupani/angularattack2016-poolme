@@ -43,4 +43,8 @@ export class VehicleService {
     getVehicles(userId) {
         return this._vehicles.filter(v => v.userId === userId);
     }
+
+    getVehicleById(vehicleId) {
+        return this._vehicles.filter(v => v.id === vehicleId)[0];
+    }
 }

@@ -109,4 +109,8 @@ export class AuthService {
         this._currentUser = undefined;
         this.userChange.next(this._currentUser);
     }
+
+    getUserById(userId) {
+        return this._users.filter(u => u.id === userId)[0];
+    }
 }
