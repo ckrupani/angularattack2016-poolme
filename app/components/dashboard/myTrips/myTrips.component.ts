@@ -19,6 +19,7 @@ export class PmMyTripsComponent implements OnInit, OnDestroy {
     public directionsDisplays: {};
     public directionsServices: any;
     public isTripDeletedDone: boolean;
+    public canTripBeDeleted: boolean;
     private _subscription: any;
 
     constructor(
@@ -33,6 +34,7 @@ export class PmMyTripsComponent implements OnInit, OnDestroy {
         this.directionsDisplays = {};
         this.directionsServices = {};
         this.isTripDeletedDone = false;
+        this.canTripBeDeleted = true;
 
         this.trips.forEach(t => {
             t.user = this._authService.getUserById(t.userId);
@@ -75,11 +77,19 @@ export class PmMyTripsComponent implements OnInit, OnDestroy {
     }
 
     deleteTrip(tripId) {
-        this._tripService.delete(tripId);
-        this.isTripDeletedDone = true;
-        setTimeout(() => {
-            this.isTripDeletedDone = false;
-        }, 5000);
+        if (this._tripService.canBeDeleted(tripId)) {
+            this._tripService.delete(tripId);
+            this.isTripDeletedDone = true;
+            setTimeout(() => {
+                this.isTripDeletedDone = false;
+            }, 5000);
+        } else {
+            this.canTripBeDeleted = false;
+            setTimeout(() => {
+                this.canTripBeDeleted = true;
+            }, 5000);
+        }
+        
     }
 
     ngOnDestroy() {

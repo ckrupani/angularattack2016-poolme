@@ -59,6 +59,10 @@ export class TripInviteService {
         return this._tripInvites.filter(ti => ti.requestorId === userId);
     }
 
+    getAllTripInvites() {
+        return this._tripInvites;
+    }
+
     approveTripInvite(tripInviteId) {
         this._tripInvites.filter(ti => ti.id === tripInviteId)[0].status = 'Approved';
         window.localStorage['pool-me-trip-invites'] = JSON.stringify(this._tripInvites);
