@@ -10,16 +10,12 @@ import { TripService } from '../../../shared_components/services/trip.service';
     styleUrls: ['app/components/dashboard/allTrips/allTrips.component.css']
 })
 
-export class PmAllTripsComponent {
+export class PmAllTripsComponent implements OnInit {
     public trips: any;
     public mapOptions: {};
     public maps: {};
     public directionsDisplays: {};
     public directionsServices: any;
-    public sourceElement: any;
-    public destinationElement: any;
-    public source: any;
-    public destination: any;
 
     constructor(
         private _authService: AuthService,
