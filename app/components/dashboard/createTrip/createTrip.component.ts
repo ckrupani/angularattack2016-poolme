@@ -36,7 +36,12 @@ export class PmCreateTripComponent implements OnInit {
 
     ngOnInit() {
         this.myVehicles = this._vehicleService.getVehicles(this._authService.currentUser().id);
-        this.trip = new Trip(0, this._authService.currentUser().id, this.myVehicles[0].id, '', '', '', '', 0);
+
+        if (this.myVehicles.length === 0) {
+            this.trip = new Trip(0, this._authService.currentUser().id, 0, '', '', '', '', 0);
+        } else {
+            this.trip = new Trip(0, this._authService.currentUser().id, this.myVehicles[0].id, '', '', '', '', 0);
+        }
         this.isTripCreatedDone = false;
         this.doesTripExist = false;
 

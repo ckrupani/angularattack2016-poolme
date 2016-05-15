@@ -3,6 +3,11 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-5 createTripForm">
+                <div class="form-group" *ngIf="myVehicles.length === 0">
+                    <div class="alert alert-danger">
+                        <strong>You have not registered any vehicles yet. Please register one to create a trip.</strong>
+                    </div>
+                </div>
                 <form role="form">
                     <div class="form-group" *ngIf="isTripCreatedDone">
                         <div class="alert alert-success">
@@ -22,7 +27,7 @@
                         <label for="tripDestination">Destination:</label>
                         <input type="text" class="form-control" id="tripDestination" [(ngModel)]="trip.destination">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" *ngIf="myVehicles.length !== 0">
                         <label for="tripVehicle">Vehicle:</label>
                         <select class="form-control" id="tripVehicle" [(ngModel)]="trip.vehicle">
                             <option *ngFor="let vehicle of myVehicles" [value]="vehicle.id">{{vehicle.type + ' - ' + vehicle.number}}</option>
@@ -40,7 +45,7 @@
                         <label for="tripOccupancy">Occupancy:</label>
                         <input type="number" class="form-control" id="tripOccupancy"  min="0" max="4" [(ngModel)]="trip.occupancy">
                     </div>
-                    <button type="button" class="btn btn-default" (click)="createTrip()" [disabled]="trip.source === '' || trip.destination === '' || trip.date === '' || trip.time === '' || trip.occupancy === 0">Create</button>
+                    <button type="button" class="btn btn-default" (click)="createTrip()" [disabled]="trip.source === '' || trip.destination === '' || trip.date === '' || trip.time === '' || trip.occupancy === 0 || myVehicles.length === 0">Create</button>
                 </form>
             </div>
             <div class="col-md-7 mapColumn">

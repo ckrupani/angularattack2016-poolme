@@ -1,0 +1,93 @@
+<div class="panel panel-default tripInvitesPanel">
+    <div class="panel-heading">Trip Connects</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default myRequestPanel">
+                    <div class="panel-heading">My Requests   <span class="badge">{{myRequests.length}}</span></div>
+                    <div class="panel-body">
+                        <div class="form-group" *ngIf="isRequestCancelDone">
+                            <div class="alert alert-success">
+                                <strong>Your have successfully cancelled your trip request.</strong>
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="myRequests.length === 0">
+                            <div class="alert alert-danger">
+                                <strong>You have not requested any trip yet.</strong>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" *ngIf="myRequests.length !== 0">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Owner</th>
+                                    <th class="text-center">Source</th>
+                                    <th class="text-center">Destination</th>
+                                    <th class="text-center">Date</th>
+                                    <th class="text-center">Time</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let request of myRequests">
+                                    <td align="center">{{request.invitee.name}}</td>
+                                    <td align="center">{{request.trip.source}}</td>
+                                    <td align="center">{{request.trip.destination}}</td>
+                                    <td align="center">{{request.trip.date}}</td>
+                                    <td align="center">{{request.trip.time}}</td>
+                                    <td align="center"><b>{{request.status}}</b></td>
+                                    <td align="center">
+                                        <ul class="list-inline">
+                                            <li><a (click)="cancelRequest(request.id)" title="Cancel Request" tooltip><span class="glyphicon glyphicon-trash"></span></a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default myInvitesPanel">
+                    <div class="panel-heading">My Invites   <span class="badge">{{myInvites.length}}</span></div>
+                    <div class="panel-body">
+                        <div class="form-group" *ngIf="myInvites.length === 0">
+                            <div class="alert alert-danger">
+                                <strong>No one has requested you for a trip.</strong>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" *ngIf="myInvites.length !== 0">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Traveller</th>
+                                    <th class="text-center">Source</th>
+                                    <th class="text-center">Destination</th>
+                                    <th class="text-center">Date</th>
+                                    <th class="text-center">Time</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let invite of myInvites">
+                                    <td align="center">{{invite.requestor.name}}</td>
+                                    <td align="center">{{invite.trip.source}}</td>
+                                    <td align="center">{{invite.trip.destination}}</td>
+                                    <td align="center">{{invite.trip.date}}</td>
+                                    <td align="center">{{invite.trip.time}}</td>
+                                    <td align="center"><b>{{invite.status}}</b></td>
+                                    <td align="center">
+                                        <ul class="list-inline">
+                                            <li><a (click)="approveRequest(invite.id)" title="Approve Request" tooltip><span class="glyphicon glyphicon-ok"></span></a></li>
+                                            <li><a (click)="rejectRequest(invite.id)" title="Reject Request" tooltip><span class="glyphicon glyphicon-remove"></span></a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

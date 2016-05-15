@@ -1,0 +1,59 @@
+.tripInvitesPanel {
+    height: 100%;
+    margin: 0px;
+    background-color: #333;
+    color: #fff !important;
+}
+
+.tripInvitesPanel>.panel-heading {
+    font-weight: bold;
+}
+
+.tripInvitesPanel .panel {
+    height: 100%;
+    margin: 0px;
+    background-color: #333;
+    color: #fff !important;
+}
+
+.tripInvitesPanel .myRequestPanel .panel-heading,
+.tripInvitesPanel .myInvitesPanel .panel-heading {
+    background-color: #424245 !important;
+    color: #fff !important;
+}
+
+.tripInvitesPanel .myRequestPanel .panel-body,
+.tripInvitesPanel .myInvitesPanel .panel-body {
+    font-size: 12px;
+    padding: 0px;
+    max-height: 450px;
+    overflow-y: auto;
+    overflow-x: none;   
+}
+
+.tripInvitesPanel .myRequestPanel .panel-body table,
+.tripInvitesPanel .myInvitesPanel .panel-body table {
+    margin: 0px;
+}
+
+.tripInvitesPanel .myRequestPanel .panel-body table td,
+.tripInvitesPanel .myInvitesPanel .panel-body table td {
+    vertical-align: middle;
+}
+
+.tripInvitesPanel span.glyphicon-trash,
+.tripInvitesPanel span.glyphicon-remove {
+    color: red;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.tripInvitesPanel span.glyphicon-ok {
+    color: green;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.tripInvitesPanel .badge {
+    background-color: #777777;
+}

@@ -20,7 +20,17 @@ export var TRIPS: Trip[] = [
         date: "2016-05-22",
         time: "20:00",
         occupancy: 1
+    },
+    {
+        id: 3,
+        userId: 2,
+        vehicleId: 3,
+        source: "ITPL Main Road, B Narayanapura, Bengaluru, Karnataka, India",
+        destination: "Koramangala, Bengaluru, Karnataka, India",
+        date: "2016-05-18",
+        time: "08:00",
+        occupancy: 2
     }
 ];
 
-export var NEW_TRIP_ID: number = 3;
+export var NEW_TRIP_ID: number = 4;

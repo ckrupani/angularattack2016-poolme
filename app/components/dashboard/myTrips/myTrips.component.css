@@ -5,6 +5,10 @@
     color: #fff !important;
 }
 
+.myTripsPanel>.panel-heading {
+    font-weight: bold;
+}
+
 .myTripsPanel .tripListPanel {
     height: 90%;
     overflow: auto;

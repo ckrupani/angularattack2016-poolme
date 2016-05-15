@@ -4,6 +4,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, Router } from 'angular2/router';
 import { AuthService } from '../../shared_components/services/auth.service';
 import { PmCreateTripComponent } from './createTrip/createTrip.component';
 import { PmAllTripsComponent } from './allTrips/allTrips.component';
+import { PmTripInvitesComponent } from './tripInvites/tripInvites.component';
 import { PmMyTripsComponent } from './myTrips/myTrips.component';
 import { PmMyVehiclesComponent } from './myVehicles/myVehicles.component';
 import { PmProfileComponent } from './profile/profile.component';
@@ -26,6 +27,11 @@ import { PmProfileComponent } from './profile/profile.component';
         name: 'AllTrips',
         component: PmAllTripsComponent,
         useAsDefault: true
+    },
+    {
+        path: '/tripInvites',
+        name: 'TripInvites',
+        component: PmTripInvitesComponent
     },
     {
         path: '/myTrips',

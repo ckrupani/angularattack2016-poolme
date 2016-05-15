@@ -3,6 +3,7 @@ import { Component, OnInit } from 'angular2/core';
 import { AuthService } from '../../../shared_components/services/auth.service';
 import { VehicleService } from '../../../shared_components/services/vehicle.service';
 import { TripService } from '../../../shared_components/services/trip.service';
+import { TripInviteService } from '../../../shared_components/services/trip-invite.service';
 
 @Component({
     selector: 'pm-alltrips',
@@ -16,22 +17,26 @@ export class PmAllTripsComponent implements OnInit {
     public maps: {};
     public directionsDisplays: {};
     public directionsServices: any;
+    public isTripInviteSent: {};
 
     constructor(
         private _authService: AuthService,
         private _vehicleService: VehicleService,
-        private _tripService: TripService
+        private _tripService: TripService,
+        private _tripInviteService: TripInviteService
     ) {}
 
     ngOnInit() {
-        this.trips = this._tripService.getAllTrips();
+        this.trips = this._tripService.getTripsByOtherUsers(this._authService.currentUser().id);
         this.maps = {};
         this.directionsDisplays = {};
         this.directionsServices = {};
+        this.isTripInviteSent = {};
 
         this.trips.forEach(t => {
             t.user = this._authService.getUserById(t.userId);
             t.vehicle = this._vehicleService.getVehicleById(t.vehicleId);
+            t.isTripRequested = this._tripInviteService.isTripRequested(t.id, this._authService.currentUser().id);
         });
 
         this.mapOptions = {
@@ -39,6 +44,12 @@ export class PmAllTripsComponent implements OnInit {
             zoom: 11,
             mapTypeControl: false
         };
+
+        this._subscription = this._tripInviteService.tripInvitesChange.subscribe((value) => {
+            this.trips.forEach(t => {
+                t.isTripRequested = this._tripInviteService.isTripRequested(t.id, this._authService.currentUser().id);
+            });
+        });
     }
 
     setDirection(trip, source, destination) {
@@ -63,5 +74,22 @@ export class PmAllTripsComponent implements OnInit {
                 this.directionsDisplays[trip].setDirections(response);
             }
         });
+    }
+
+    requestRide(invitee, tripId) {
+        var tripInvite = {};
+        tripInvite.id = 0;
+        tripInvite.requestorId = this._authService.currentUser().id;
+        tripInvite.inviteeId = invitee.id;
+        tripInvite.tripId = tripId;
+        tripInvite.status = 'Pending';
+        this._tripInviteService.create(tripInvite);
+        this.isTripInviteSent = {
+            name: invitee.name,
+            status: true
+        };
+        setTimeout(() => {
+            this.isTripInviteSent = {};
+        }, 5000);
     }
 }
