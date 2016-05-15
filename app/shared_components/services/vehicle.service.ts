@@ -3,6 +3,7 @@ import { Subject } from 'rxjs/Subject';
 
 import { VEHICLES, NEW_VEHICLE_ID } from '../mock-data/mock-vehicles';
 import { Vehicle } from '../models/vehicle';
+import { TripService } from './trip.service';
 
 @Injectable()
 export class VehicleService {
@@ -10,7 +11,7 @@ export class VehicleService {
     private _vehicles : Vehicle[];
     public vehiclesChange: Subject<any> = new Subject<any>();
 
-    constructor() {
+    constructor(private _tripService: TripService) {
         if (!window.localStorage['pool-me-vehicles']) {
             window.localStorage['pool-me-vehicles'] = JSON.stringify(VEHICLES);
         }
@@ -32,6 +33,10 @@ export class VehicleService {
         this.vehiclesChange.next(this._vehicles);
         window.localStorage['pool-me-vehicles'] = JSON.stringify(this._vehicles);
         window.localStorage['pool-me-newVehicleId'] = this._newVehicleId;
+    }
+
+    canBeDeleted(vehicleId) {
+        return this._tripService.getAllTrips().filter(t => t.vehicleId === vehicleId).length === 0;
     }
 
     delete(vehicleId) {

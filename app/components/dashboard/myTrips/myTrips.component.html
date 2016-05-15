@@ -8,6 +8,11 @@
                         <strong>Your have successfully deleted your trip.</strong>
                     </div>
                 </div>
+                <div class="form-group" *ngIf="!canTripBeDeleted">
+                    <div class="alert alert-danger">
+                        <strong>You can not delete this trip as there is a pool-me request associated with this trip.</strong>
+                    </div>
+                </div>
                 <div class="form-group" *ngIf="trips.length === 0">
                     <div class="alert alert-danger">
                         <strong>Your have not created any trips yet. Please create one in 'Create a Trip' tab.</strong>

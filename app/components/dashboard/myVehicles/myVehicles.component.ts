@@ -17,6 +17,7 @@ export class PmMyVehiclesComponent implements OnInit, OnDestroy {
     public myVehicles: Vehicle[];
     public isVehicleRegistrationDone: boolean;
     public isVehicleDeletedDone: boolean;
+    public canVehicleBeDeleted: boolean;
     public doesVehicleExist: boolean;
     private _subscription: any;
 
@@ -29,6 +30,7 @@ export class PmMyVehiclesComponent implements OnInit, OnDestroy {
         this.newVehicle = new Vehicle(0, this._authService.currentUser().id, '', '4-wheeler', []);
         this.isVehicleRegistrationDone = false;
         this.isVehicleDeletedDone = false;
+        this.canVehicleBeDeleted = true;
         this.doesVehicleExist = false;
         this.myVehicles = this._vehicleService.getVehicles(this._authService.currentUser().id);
 
@@ -63,11 +65,18 @@ export class PmMyVehiclesComponent implements OnInit, OnDestroy {
     }
 
     deleteVehicle(vehicleId) {
-        this._vehicleService.delete(vehicleId);
-        this.isVehicleDeletedDone = true;
-        setTimeout(() => {
-            this.isVehicleDeletedDone = false;
-        }, 5000);
+        if (this._vehicleService.canBeDeleted(vehicleId)) {
+            this._vehicleService.delete(vehicleId);
+            this.isVehicleDeletedDone = true;
+            setTimeout(() => {
+                this.isVehicleDeletedDone = false;
+            }, 5000);
+        } else {
+            this.canVehicleBeDeleted = false;
+            setTimeout(() => {
+                this.canVehicleBeDeleted = true;
+            }, 5000);
+        }
     }
 
     ngOnDestroy() {

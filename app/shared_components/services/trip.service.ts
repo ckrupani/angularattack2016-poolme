@@ -3,6 +3,7 @@ import { Subject } from 'rxjs/Subject';
 
 import { TRIPS, NEW_TRIP_ID } from '../mock-data/mock-trips';
 import { Trip } from '../models/trip';
+import { TripInviteService } from './trip-invite.service';
 
 @Injectable()
 export class TripService {
@@ -10,7 +11,7 @@ export class TripService {
     private _trips : Trip[];
     public tripsChange: Subject<any> = new Subject<any>();
 
-    constructor() {
+    constructor(private _tripInviteService: TripInviteService) {
         if (!window.localStorage['pool-me-trips']) {
             window.localStorage['pool-me-trips'] = JSON.stringify(TRIPS);
         }
@@ -40,6 +41,10 @@ export class TripService {
         this.tripsChange.next(this._trips);
         window.localStorage['pool-me-trips'] = JSON.stringify(this._trips);
         window.localStorage['pool-me-newTripId'] = this._newTripId;
+    }
+
+    canBeDeleted(tripId) {
+        return this._tripInviteService.getAllTripInvites().filter(ti => ti.tripId === tripId).length === 0;
     }
 
     delete(tripId) {
