@@ -4,3 +4,28 @@
     background-color: #333;
     color: #fff !important;
 }
+
+.myTripsPanel .tripListPanel {
+    height: 90%;
+    overflow: auto;
+}
+
+.myTripsPanel .panel-collapse,
+.myTripsPanel .tripListPanel .panel-heading {
+    background-color: #333;
+    color: #fff !important;
+}
+
+.myTripsPanel .tripListPanel .tripDetailsElement {
+    padding: 0 !important;
+}
+
+.myTripsPanel .tripListPanel .tripDetailsElement .tripMap {
+    height: 300px;
+    border: solid 1px #fff;
+    border-radius: 4px;
+}
+
+.myTripsPanel .tripListPanel .btn {
+    margin: 5px 0;
+}

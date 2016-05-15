@@ -3,7 +3,12 @@
     <div class="panel-body tripListPanel">
         <div class="row">
             <div class="col-md-12">
-                <table class="table table-bordered">
+                <div class="form-group" *ngIf="trips.length === 0">
+                    <div class="alert alert-danger">
+                        <strong>Nobody has created any trips yet. Please create one in 'Create a Trip' tab.</strong>
+                    </div>
+                </div>
+                <table class="table table-bordered" *ngIf="trips.length !== 0">
                     <thead>
                         <tr>
                             <th class="text-center">User</th>
