@@ -8,3 +8,9 @@
 .profilePanel>.panel-heading {
     font-weight: bold;
 }
+
+.profilePanel .panel {
+    height: 100%;
+    background-color: #333;
+    color: #fff !important;
+}

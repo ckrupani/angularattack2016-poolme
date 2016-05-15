@@ -27,6 +27,14 @@
     margin: 0px;
 }
 
+.myVehiclesPanel .vehiclesTablePanel .panel-body table td {
+    vertical-align: middle;
+}
+
+.myVehiclesPanel .vehiclesTablePanel .panel-body table td ul {
+    margin-bottom: 0px;
+}
+
 .myVehiclesPanel .vehicleRegistrationPanel .panel-heading {
     background-color: #424245 !important;
     color: #fff !important;
