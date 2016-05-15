@@ -1,4 +1,4 @@
-import { Component, OnInit  } from 'angular2/core';
+import { Component, OnInit } from 'angular2/core';
 import { Observable } from 'rxjs/Rx';
 
 import { AuthService } from '../../../shared_components/services/auth.service';
