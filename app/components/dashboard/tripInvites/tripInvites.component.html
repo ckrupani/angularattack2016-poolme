@@ -49,11 +49,11 @@
             </div>
             <div class="col-md-6">
                 <div class="panel panel-default myInvitesPanel">
-                    <div class="panel-heading">My Invites   <span class="badge">{{myInvites.length}}</span></div>
+                    <div class="panel-heading">PoolMe Invites   <span class="badge">{{myInvites.length}}</span></div>
                     <div class="panel-body">
                         <div class="form-group" *ngIf="myInvites.length === 0">
                             <div class="alert alert-danger">
-                                <strong>No one has requested you for a trip.</strong>
+                                <strong>No one has sent you pool-me request.</strong>
                             </div>
                         </div>
                         <table class="table table-bordered" *ngIf="myInvites.length !== 0">

@@ -22,7 +22,6 @@ export class AuthService {
             this._currentUser = JSON.parse(window.localStorage['pool-me-user']).token;
         } else {
             this._currentUser = {};
-            // this._currentUser = { id: 1, email: "abc@yahoo.com", password: "abc", name: "John", sex: "male" };
         }
         this.userChange.next(this._currentUser);
         this._newUserId = +window.localStorage['pool-me-newUserId'];

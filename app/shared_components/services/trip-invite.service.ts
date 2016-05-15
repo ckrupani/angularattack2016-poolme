@@ -48,7 +48,7 @@ export class TripInviteService {
     delete(tripInviteId) {
         this._tripInvites = this._tripInvites.filter(ti => ti.id !== tripInviteId);
         this.tripInvitesChange.next(this._tripInvites);
-        window.localStorage['pool-me-trips'] = JSON.stringify(this._tripInvites);
+        window.localStorage['pool-me-trip-invites'] = JSON.stringify(this._tripInvites);
     }
 
     getTripInvites(userId) {
@@ -61,9 +61,11 @@ export class TripInviteService {
 
     approveTripInvite(tripInviteId) {
         this._tripInvites.filter(ti => ti.id === tripInviteId)[0].status = 'Approved';
+        window.localStorage['pool-me-trip-invites'] = JSON.stringify(this._tripInvites);
     }
 
     rejectTripInvite(tripInviteId) {
         this._tripInvites.filter(ti => ti.id === tripInviteId)[0].status = 'Rejected';
+        window.localStorage['pool-me-trip-invites'] = JSON.stringify(this._tripInvites);
     }
 }

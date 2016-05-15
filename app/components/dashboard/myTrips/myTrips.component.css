@@ -14,6 +14,10 @@
     overflow: auto;
 }
 
+.myTripsPanel .tripListPanel table td {
+    vertical-align: middle;
+}
+
 .myTripsPanel .panel-collapse,
 .myTripsPanel .tripListPanel .panel-heading {
     background-color: #333;
@@ -22,6 +26,18 @@
 
 .myTripsPanel .tripListPanel .tripDetailsElement {
     padding: 0 !important;
+}
+
+.myTripsPanel .tripListPanel .tripDetailsElement .collapse {
+    display: block;
+    visibility: hidden;
+    height: 0px;
+}
+
+.myTripsPanel .tripListPanel .tripDetailsElement .collapse.in {
+    display: block;
+    visibility: visible;
+    height: 330px;
 }
 
 .myTripsPanel .tripListPanel .tripDetailsElement .tripMap {
