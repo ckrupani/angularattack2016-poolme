@@ -48,8 +48,16 @@ export class TripService {
         window.localStorage['pool-me-trips'] = JSON.stringify(this._trips);
     }
 
+    getTripById(tripId) {
+        return this._trips.filter(t => t.id === tripId)[0];
+    }
+
     getTripsByUser(userId) {
         return this._trips.filter(t => t.userId === userId);
+    }
+
+    getTripsByOtherUsers(userId) {
+        return this._trips.filter(t => t.userId !== userId);
     }
 
     getAllTrips() {

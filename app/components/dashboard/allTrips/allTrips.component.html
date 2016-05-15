@@ -5,7 +5,12 @@
             <div class="col-md-12">
                 <div class="form-group" *ngIf="trips.length === 0">
                     <div class="alert alert-danger">
-                        <strong>Nobody has created any trips yet. Please create one in 'Create a Trip' tab.</strong>
+                        <strong>Currently, there are no rides available for you to take.</strong>
+                    </div>
+                </div>
+                <div class="form-group" *ngIf="isTripInviteSent.status">
+                    <div class="alert alert-success">
+                        Your trip request has been sent to <strong>{{isTripInviteSent.name}}</strong>. You can the status in 'Trip Connects'.
                     </div>
                 </div>
                 <table class="table table-bordered" *ngIf="trips.length !== 0">
@@ -32,7 +37,8 @@
                             <td align="center">{{ trip.occupancy }}</td>
                             <td align="center">
                                 <a class="btn btn-success" data-toggle="collapse" data-parent="#accordion" [href]="'#collapse' + trip.id" (click)="setDirection(trip.id, trip.source, trip.destination)">View Route</a>
-                                <button type="button" class="btn btn-info">Take Ride</button>
+                                <button type="button" class="btn btn-info" *ngIf="trip.isTripRequested" [disabled]="trip.isTripRequested" title="You have already requested this trip.">Take Ride</button>
+                                <button type="button" class="btn btn-info" *ngIf="!trip.isTripRequested" title="Request for a ride." (click)="requestRide(trip.user, trip.id)">Take Ride</button>
                             </td>
                         </tr>
                         <tr>

@@ -5,11 +5,26 @@
     color: #fff !important;
 }
 
+.myVehiclesPanel>.panel-heading {
+    font-weight: bold;
+}
+
 .myVehiclesPanel .panel {
     height: 100%;
     margin: 0px;
     background-color: #333;
     color: #fff !important;
+}
+
+.myVehiclesPanel .vehiclesTablePanel .panel-body {
+    padding: 0px;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: none;   
+}
+
+.myVehiclesPanel .vehiclesTablePanel .panel-body table {
+    margin: 0px;
 }
 
 .myVehiclesPanel .vehicleRegistrationPanel .panel-heading {
@@ -26,7 +41,7 @@
     margin-right: 15px;
 }
 
-.myVehiclesPanel span.glyphicon-remove {
+.myVehiclesPanel span.glyphicon-trash {
     color: red;
     cursor: pointer;
 }

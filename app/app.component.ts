@@ -4,6 +4,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from 'angula
 import { AuthService } from './shared_components/services/auth.service';
 import { VehicleService } from './shared_components/services/vehicle.service';
 import { TripService } from './shared_components/services/trip.service';
+import { TripInviteService } from './shared_components/services/trip-invite.service';
 
 import { PmHeaderComponent } from './components/header/header.component';
 import { PmFooterComponent } from './components/footer/footer.component';
@@ -19,7 +20,8 @@ import { PmDashboardComponent } from './components/dashboard/dashboard.component
         ROUTER_PROVIDERS,
         AuthService,
         VehicleService,
-        TripService
+        TripService,
+        TripInviteService
     ]
 })
 

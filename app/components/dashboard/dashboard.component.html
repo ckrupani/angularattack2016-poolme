@@ -8,6 +8,9 @@
                 <a [routerLink]="['AllTrips']" class="list-group-item" [ngClass]="{active: currentView === 'allTrips'}" (click)="setCurrentView('allTrips')" >
                     All Trips<span *ngIf="currentView === 'allTrips'" class="glyphicon glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span>
                 </a>
+                <a [routerLink]="['TripInvites']" class="list-group-item" [ngClass]="{active: currentView === 'tripInvites'}" (click)="setCurrentView('tripInvites')" >
+                    Trip Connects<span *ngIf="currentView === 'tripInvites'" class="glyphicon glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span>
+                </a>
                 <a [routerLink]="['MyTrips']" class="list-group-item" [ngClass]="{active: currentView === 'myTrips'}" (click)="setCurrentView('myTrips')">
                     My Trips<span *ngIf="currentView === 'myTrips'" class="glyphicon glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span>
                 </a>

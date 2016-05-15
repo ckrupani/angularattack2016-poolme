@@ -4,3 +4,7 @@
     background-color: #333;
     color: #fff !important;
 }
+
+.profilePanel>.panel-heading {
+    font-weight: bold;
+}

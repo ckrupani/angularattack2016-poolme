@@ -16,6 +16,6 @@ export class Trip {
         public destination: string,
         public date: string,
         public time: string,
-        public occupancy: number,
+        public occupancy: number
     ) {}
 }

@@ -3,38 +3,42 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-6">
-                <div class="form-group" *ngIf="isVehicleDeletedDone">
-                    <div class="alert alert-success">
-                        <strong>Your have successfully deleted your vehicle.</strong>
+                <div class="panel panel-default vehiclesTablePanel">
+                    <div class="panel-body">
+                        <div class="form-group" *ngIf="isVehicleDeletedDone">
+                            <div class="alert alert-success">
+                                <strong>Your have successfully deleted your vehicle.</strong>
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="myVehicles.length === 0">
+                            <div class="alert alert-danger">
+                                <strong>You have not registered any vehicles yet. Please register one.</strong>
+                            </div>
+                        </div>
+                        <table class="table table-bordered" *ngIf="myVehicles.length !== 0">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Number</th>
+                                    <th class="text-center">Type</th>
+                                    <th class="text-center">Facilities</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let vehicle of myVehicles">
+                                    <td align="center">{{vehicle.number}}</td>
+                                    <td align="center">{{vehicle.type}}</td>
+                                    <td align="center">{{vehicle.facilities.join(', ')}}</td>
+                                    <td align="center">
+                                        <ul class="list-inline">
+                                            <li><a (click)="deleteVehicle(vehicle.id)" title="Delete Vehicle" tooltip><span class="glyphicon glyphicon-trash"></span></a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table> 
                     </div>
                 </div>
-                <div class="form-group" *ngIf="myVehicles.length === 0">
-                    <div class="alert alert-danger">
-                        <strong>You have not registered any vehicles yet. Please register one.</strong>
-                    </div>
-                </div>
-                <table class="table table-bordered" *ngIf="myVehicles.length !== 0">
-                    <thead>
-                        <tr>
-                            <th class="text-center">Number</th>
-                            <th class="text-center">Type</th>
-                            <th class="text-center">Facilities</th>
-                            <th class="text-center">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let vehicle of myVehicles">
-                            <td align="center">{{vehicle.number}}</td>
-                            <td align="center">{{vehicle.type}}</td>
-                            <td align="center">{{vehicle.facilities.join(', ')}}</td>
-                            <td align="center">
-                                <ul class="list-inline">
-                                    <li><a (click)="deleteVehicle(vehicle.id)" title="Delete Vehicle" tooltip><span class="glyphicon glyphicon-remove"></span></a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table> 
             </div>
             <div class="col-md-6">
                 <div class="panel panel-default vehicleRegistrationPanel">

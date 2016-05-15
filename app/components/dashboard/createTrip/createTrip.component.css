@@ -5,6 +5,10 @@
     color: #fff !important;
 }
 
+.createTripPanel>.panel-heading {
+    font-weight: bold;
+}
+
 .createTripPanel .panel-body,
 .createTripPanel .panel-body .row,
 .createTripPanel .panel-body .row .mapColumn {
