@@ -1,4 +1,6 @@
 import { Component, OnInit, OnDestroy } from 'angular2/core';
+import template from './myTrips.component.html!text';
+import './myTrips.component.css!';
 
 import { AuthService } from '../../../shared_components/services/auth.service';
 import { VehicleService } from '../../../shared_components/services/vehicle.service';
@@ -6,8 +8,8 @@ import { TripService } from '../../../shared_components/services/trip.service';
 
 @Component({
     selector: 'pm-mytrips',
-    templateUrl: 'app/components/dashboard/myTrips/myTrips.component.html',
-    styleUrls: ['app/components/dashboard/myTrips/myTrips.component.css']
+    template: template
+    // styleUrls: ['app/components/dashboard/myTrips/myTrips.component.css']
 })
 
 export class PmMyTripsComponent implements OnInit, OnDestroy {

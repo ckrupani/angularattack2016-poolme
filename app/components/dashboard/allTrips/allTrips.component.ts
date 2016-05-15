@@ -1,4 +1,6 @@
 import { Component, OnInit } from 'angular2/core';
+import template from './allTrips.component.html!text';
+import './allTrips.component.css!';
 
 import { AuthService } from '../../../shared_components/services/auth.service';
 import { VehicleService } from '../../../shared_components/services/vehicle.service';
@@ -7,8 +9,8 @@ import { TripInviteService } from '../../../shared_components/services/trip-invi
 
 @Component({
     selector: 'pm-alltrips',
-    templateUrl: 'app/components/dashboard/allTrips/allTrips.component.html',
-    styleUrls: ['app/components/dashboard/allTrips/allTrips.component.css']
+    template: template
+    // styleUrls: ['app/components/dashboard/allTrips/allTrips.component.css']
 })
 
 export class PmAllTripsComponent implements OnInit {
